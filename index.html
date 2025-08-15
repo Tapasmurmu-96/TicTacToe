@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+    <!-- Tailwind (CDN) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Your logic + a few custom styles -->
+    <script src="script.js" defer></script>
+    <link rel="stylesheet" href="style.css" />
+
+    <title>Tic Tac Toe</title>
+  </head>
+  <body class="h-full bg-gradient-to-r from-blue-500 to-purple-500 text-slate-900 antialiased">
+    <div class="min-h-screen flex flex-col items-center px-2 py-4 gap-4 sm:px-4 sm:py-6 sm:gap-6">
+
+      <!-- Title -->
+      <h1 id="info__title" class="text-2xl sm:text-3xl md:text-4xl font-extrabold tracking-tight font-serif text-center">
+        TIC TAC TOE
+      </h1>
+
+      <!-- Scoreboard -->
+      <div id="info"
+           class="w-full max-w-xl grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-3">
+        <div class="info__player flex items-center justify-center gap-2 sm:gap-3 bg-white rounded-2xl shadow p-2 sm:p-4">
+          <img src="assets/cross.png" alt="Player 1 icon" class="info__player__icon w-7 h-7 sm:w-8 sm:h-8" />
+          <h2 id="info__player__name1" class="text-lg sm:text-xl font-semibold truncate">Player 1</h2>
+          <span class="text-lg sm:text-xl">:</span>
+          <span id="info__player__score1" class="text-xl sm:text-2xl font-bold tabular-nums">0</span>
+        </div>
+        <div class="info__player flex items-center justify-center gap-2 sm:gap-3 bg-white rounded-2xl shadow p-2 sm:p-4">
+          <img src="assets/circle.png" alt="Player 2 icon" class="info__player__icon w-7 h-7 sm:w-8 sm:h-8" />
+          <h2 id="info__player__name2" class="text-lg sm:text-xl font-semibold truncate">Player 2</h2>
+          <span class="text-lg sm:text-xl">:</span>
+          <span id="info__player__score2" class="text-xl sm:text-2xl font-bold tabular-nums">0</span>
+        </div>
+      </div>
+
+      <!-- Game Grid -->
+      <div id="grid"
+           class="grid grid-cols-3 gap-2 sm:gap-3 w-full max-w-[98vw] sm:max-w-[min(92vw,500px)]">
+        <div id="grid__square-1" class="grid__square aspect-square"></div>
+        <div id="grid__square-2" class="grid__square aspect-square"></div>
+        <div id="grid__square-3" class="grid__square aspect-square"></div>
+        <div id="grid__square-4" class="grid__square aspect-square"></div>
+        <div id="grid__square-5" class="grid__square aspect-square"></div>
+        <div id="grid__square-6" class="grid__square aspect-square"></div>
+        <div id="grid__square-7" class="grid__square aspect-square"></div>
+        <div id="grid__square-8" class="grid__square aspect-square"></div>
+        <div id="grid__square-9" class="grid__square aspect-square"></div>
+      </div>
+
+      <!-- Instructions + Controls -->
+      <div id="instructions" class="flex flex-col items-center gap-2 sm:gap-3">
+        <h2 id="instructions__text" class="text-base sm:text-lg md:text-xl text-slate-950 text-center">
+          Click the button to start
+        </h2>
+        <div class="flex gap-2 sm:gap-3 flex-wrap justify-center">
+          <button id="instructions__btn"
+                  class="btn-primary text-sm sm:text-base px-3 py-2 sm:px-4 sm:py-2">
+            Start Game
+          </button>
+          <button id="reset__scores_btn"
+                  class="btn-secondary text-sm sm:text-base px-3 py-2 sm:px-4 sm:py-2"
+                  title="Reset both players' scores">
+            Reset Scores
+          </button>
+        </div>
+      </div>
+      <div>
+        <h3 class="text-xs sm:text-sm md:text-xl text-slate-700 text-center">Game Design By Tapas Murmu</h3>
+      </div>
+
+      <!-- Modal -->
+      <div id="modal"
+           class="fixed inset-0 hidden place-items-center bg-black/60 p-2 sm:p-4 z-50">
+        <div id="modal__content"
+             class="w-full max-w-xs sm:max-w-sm bg-gradient-to-br from-red-500 to-orange-500 rounded-2xl shadow-xl p-4 sm:p-6">
+          <h2 class="text-lg sm:text-xl font-semibold mb-2 sm:mb-4">Enter Player Name</h2>
+          <form id="name__form" class="grid gap-2 sm:gap-3">
+            <label for="player1" class="text-xs sm:text-sm font-medium">Player 1 (X)</label>
+            <input
+              type="text"
+              id="player1"
+              name="player1"
+              placeholder="Player 1"
+              maxlength="12"
+              required
+              class="input"
+            />
+            <label for="player2" class="text-xs sm:text-sm font-medium">Player 2 (O)</label>
+            <input
+              type="text"
+              id="player2"
+              name="player2"
+              placeholder="Player 2"
+              maxlength="12"
+              required
+              class="input"
+            />
+            <input type="submit" value="Start Game" class="btn-primary mt-2" />
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sounds (put your .mp3/.wav in assets/sounds/) -->
+    <audio id="s-click" src="assets/sounds/click.mp3" preload="auto"></audio>
+    <audio id="s-win"   src="assets/sounds/win.mp3"   preload="auto"></audio>
+    <audio id="s-draw"  src="assets/sounds/draw.mp3"  preload="auto"></audio>
+  </body>
+</html>
