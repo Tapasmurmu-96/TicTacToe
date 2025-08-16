@@ -73,6 +73,14 @@
                   title="Reset both players' scores">
             Reset Scores
           </button>
+          <div class="flex justify-center">
+            <button
+              id="back__btn"
+              class="btn-secondary text-sm sm:text-base px-3 py-2 sm:px-4 sm:py-2 rounded-full bg-blue-600 text-white hover:bg-blue-800 transition"
+            >
+               Back
+            </button>
+          </div>
         </div>
       </div>
       <div>
@@ -116,6 +124,12 @@
     <audio id="s-click" src="assets/sounds/click.mp3" preload="auto"></audio>
     <audio id="s-win"   src="assets/sounds/win.mp3"   preload="auto"></audio>
     <audio id="s-draw"  src="assets/sounds/draw.mp3"  preload="auto"></audio>
+    <script>
+      document.getElementById("back__btn").addEventListener("click", () => {
+        window.location.href = "index.html";
+      });
+    </script>
   </body>
 </html>
+
 
